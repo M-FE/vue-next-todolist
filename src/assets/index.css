@@ -14,6 +14,18 @@ header {
 	background: rgba(47, 47, 47, 0.98);
 	z-index: 9999;
 }
+
+.tip {
+	font-size: 8px;
+	text-align: center;
+}
+
+.tip i {
+	font-style: normal;
+	margin: 0 4px;
+	color: #f40;
+}
+
 section {
 	margin: 0 auto;
 }

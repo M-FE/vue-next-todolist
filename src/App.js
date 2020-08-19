@@ -3,8 +3,12 @@ import Header from './components/Header';
 import List from './components/List';
 import Footer from './components/Footer';
 
+import useVisit from './visit';
+
 export default defineComponent({
 	setup() {
+		const { clickCount, visitCount } = useVisit();
+
 		let state = reactive({
 			text: '',
 			todoList: [
@@ -70,6 +74,8 @@ export default defineComponent({
 			state,
 			completedTodos,
 			incompleteTodos,
+			clickCount, 
+			visitCount,
 			textChange,
 			addTodo,
 			editTodo,
@@ -83,6 +89,8 @@ export default defineComponent({
 			state, 
 			completedTodos, 
 			incompleteTodos, 
+			clickCount, 
+			visitCount,
 			textChange,
 			addTodo,
 			editTodo,
@@ -99,6 +107,7 @@ export default defineComponent({
 			<>
 				<Header text={state.text} onTextChange={textChange} onAddTodo={ addTodo } />
 				<section>
+					<div class="tip">您已经访问过当前页面<i>{ visitCount }</i>次，本次访问共点击了<i>{ clickCount }</i>次页面。</div>
 					{
 						lists.map((list, index) => (
 							<List 
